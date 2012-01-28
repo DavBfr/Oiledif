@@ -1,0 +1,74 @@
+SPP Packet
+[0x99] Header
+[char] Length in bytes
+[char] Sequence ID, increments at each request
+[char] Command
+[....] Data
+[char] CRC [Sequence-id .. CRC-1]
+
+Commands
+
+0x00 App Init Protocol Version [H]
+0x01 devProtocolMajorVer = 1
+0x02 devProtocolMinorVer = 2
+
+0x01 Dev Init Protocol Version [F]
+0x01 devProtocolMajorVer = 1
+0x02 devProtocolMinorVer = 2
+
+0x02 App Terminate [H]
+
+0x03 Dev Terminate [F]
+
+0x04 Dev ACK [F]
+data 0x00 ou 0x01
+
+0x05 App ACK [H]
+0x00
+0x00
+
+0x06 Get dev capabilities [H]
+
+0x07 Show dev capabilities [F]
+data 8 bytes capability bit string = 0000000000000000000000000000000000000101000000000100000101000001
+
+0x08 Get dev Name [H]
+data None
+
+0x09 Show Dev Name [F]
+data AS111
+
+0x0a Get App Property Value [F]
+
+0x0b Show App Propery Value [F]
+
+0x0c Set App Propery Value [H]
+
+0x0d Get Dev Propery Param [H]
+
+0x0e Show Dev Propery Param [F]
+
+0x0f Get Dev Property Value [H]
+
+0x10 Show Dev Propery Value [F]
+
+0x11 Set Dev Propery Value [H]
+0x08 Format   12 / 24 ?
+0x14 Siècle   20
+0x0C Année    12
+0x00 Mois     00 -> Janvier
+0x17 Jour     23
+0x0A Heure    10
+0x3B Minutes  59
+0x07 Secondes 07
+
+0x0F ??
+0x08 ??
+
+0x13 Get dev firmware version [H]
+
+0x14 Show dev firmware version [F]
+data version number = 022.10a.
+
+0x15 Do Firmware upgrade [H]
+
